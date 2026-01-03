@@ -1,11 +1,18 @@
-import { Hero226 } from "@/components/design-2/heroB";
+import React from "react";
+import { Hero222 } from "@/components/design-2/heroB";
+import { ConceptText } from "@/components/design-2/concept-text";
+import { Feature1b } from "@/components/design-2/feature1b";
 
-function DesignPage2() {
+export default function DesignPage2() {
   return (
-    <div>
-      <Hero226 />
-    </div>
+    <>
+      <div className="-mt-20">
+        <Hero222 />
+      </div>
+      <div className="relative z-10 bg-background">
+        <ConceptText />
+        <Feature1b />
+      </div>
+    </>
   );
 }
-
-export default DesignPage2;

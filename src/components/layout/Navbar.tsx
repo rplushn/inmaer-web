@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 
 export function Navbar() {
   return (
-    <nav className="border-b">
+    <nav className="relative z-50 border-b bg-background/95 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-semibold">
           {siteConfig.name}

@@ -1,159 +1,90 @@
 "use client";
 
-import Autoplay from "embla-carousel-autoplay";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 
 import { cn } from "@/lib/utils";
+import { useMousePosition } from "@/hooks/use-mouse-position";
 
-import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  type CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
+import VariableFontAndCursor from "@/components/fancy/components/text/variable-font-and-cursor";
 
-interface Hero226Props {
+interface Hero222Props {
   className?: string;
 }
 
-const Hero226 = ({ className }: Hero226Props) => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+const Hero222 = ({ className }: Hero222Props) => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const Images = [
-    {
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg",
-      title: "Build Your Dream Home with us",
-      description: "More than homes — we build dreams.",
-      link: "#",
-    },
-    {
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg",
-      title: "Smart Homes",
-      description: "Intelligent living spaces for the future",
-      link: "#",
-    },
-    {
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw14.jpeg",
-      title: "Eco Friendly",
-      description: "Sustainable and environmentally conscious homes",
-      link: "#",
-    },
-    {
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw16.jpeg",
-      title: "Custom Builds",
-      description: "Tailored solutions for your unique vision",
-      link: "#",
-    },
-    {
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw17.jpeg",
-      title: "Custom Builds",
-      description: "Tailored solutions for your unique vision",
-      link: "#",
-    },
-  ];
-
-  useEffect(() => {
-    if (!api) return;
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
+  const { x, y } = useMousePosition(containerRef as React.RefObject<HTMLElement>);
   return (
-    <section className={cn("py-32", className)}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className=""
-      >
-        <Carousel
-          setApi={setApi}
-          className="w-full"
-          opts={{
-            loop: true,
-            slidesToScroll: 1,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 2000,
-              stopOnInteraction: true,
-              stopOnMouseEnter: true,
-            }),
-          ]}
+    <section className={cn("w-full", className)}>
+      <div className="w-full">
+        <div
+          ref={containerRef}
+          className="relative flex h-screen flex-col items-center justify-center gap-4 overflow-hidden bg-[url('/images/design-2/herob3.jpg')] bg-center xl:bg-cover"
         >
-          <CarouselContent className="flex w-full gap-4">
-            {Images.map((img, index) => (
-              <CarouselItem key={index} className="w-full basis-[91%]">
-                <div className="p-1">
-                  <div
-                    key={index}
-                    className="relative flex h-[40rem] flex-col items-end justify-between bg-muted p-8"
-                  >
-                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
-                      <img
-                        src={img.image}
-                        alt={img.title}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="z-10 mt-auto text-white">
-                      <h1 className="max-w-lg text-right text-4xl font-medium tracking-tight lg:text-6xl">
-                        {img.title}
-                      </h1>
-                      <p className="my-6 max-w-lg text-right text-lg">
-                        {img.description}
-                      </p>
-                    </div>
-                    <div className="z-10 flex w-full justify-between">
-                      <a href={img.link}>
-                        <Button
-                          variant="outline"
-                          className="text-md group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight bg-background/80 backdrop-blur-sm"
-                        >
-                          Try it for free
-                          <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
-                        </Button>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          {/* Navigation Dots */}
-          <div className="mt-4 flex justify-center gap-2">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => api?.scrollTo(index)}
-                className={cn(
-                  "h-2.5 w-2.5 rounded-full transition-all",
-                  current === index
-                    ? "w-4 bg-primary"
-                    : "bg-muted-foreground/50"
-                )}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+          <div className="absolute bottom-10 left-10 flex flex-col mix-blend-exclusion">
+            <p className="text-xs text-secondary">x : {Math.round(x)}</p>
+            <p className="text-xs text-secondary">y : {Math.round(y)}</p>
           </div>
-        </Carousel>
-      </motion.div>
+          <div className="relative z-10 h-full w-full mix-blend-exclusion">
+            <div className="mx-auto mt-[15.5rem] w-fit">
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="font-sans text-xs uppercase tracking-widest text-white md:ml-3 sm:text-sm"
+              >
+                BIENVENIDOS a{" "}
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <VariableFontAndCursor
+                  label="INMAER"
+                  className="text-5xl tracking-[-5px] text-white leading-none sm:text-7xl md:text-[12rem] lg:text-[14rem] md:tracking-[-13px]"
+                  fontVariationMapping={{
+                    y: { name: "wght", min: 100, max: 900 },
+                    x: { name: "slnt", min: 0, max: -10 },
+                  }}
+                  containerRef={containerRef as React.RefObject<HTMLDivElement>}
+                />
+              </motion.div>
+              <div
+                className="absolute top-0 h-screen w-px -translate-x-1/2 bg-background"
+                style={{
+                  left: `${x - 2}px`,
+                }}
+              />
+              <div
+                className="absolute left-0 h-px w-screen -translate-y-1/2 bg-background"
+                style={{
+                  top: `${y - 2}px`,
+                }}
+              />
+              <div
+                className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-sm bg-background"
+                style={{
+                  top: `${y - 2}px`,
+                  left: `${x - 2}px`,
+                }}
+              />
+            </div>
+          </div>
+          <button className="group z-[99] mb-10 flex items-center gap-2 bg-background px-4 py-2 text-black transition-all duration-300 hover:gap-4">
+            Inicia ya
+            <ArrowRight
+              className="-rotate-45 transition-all duration-300 group-hover:rotate-0"
+              size={16}
+            />
+          </button>
+        </div>
+      </div>
     </section>
   );
 };
 
-export { Hero226 };
-
-export const GRADIENT_ANGLES = {
-  top: 0,
-  right: 90,
-  bottom: 180,
-  left: 270,
-};
+export { Hero222 };
