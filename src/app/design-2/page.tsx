@@ -13,6 +13,7 @@ export default function DesignPage2() {
         <ConceptText />
         <Feature1b />
         <ConceptText
+          label={null}
           title="UN LUGAR DONDE LA NATURALEZA, EL DISEÑO Y LA OPORTUNIDAD SE UNEN."
           buttonText="NUESTRA VISIÓN +"
         />

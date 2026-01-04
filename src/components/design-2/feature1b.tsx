@@ -40,11 +40,11 @@ const Feature1b = ({
   videoSecondaryCaption,
   cards,
 }: Feature1bProps = {}) => {
-  const defaultImageSrc = "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw6.jpeg";
-  const defaultImageAlt = "Creative agency studio preview";
-  const defaultVideoUrl = "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/man-1.mp4";
-  const defaultVideoCaption = "Discover our story";
-  const defaultVideoSecondaryCaption = "(1:47 Sec)";
+  const defaultImageSrc = "https://img.youtube.com/vi/Lc4eeUXtybU/sddefault.jpg";
+  const defaultImageAlt = "Arquitectura que Respira - Video preview";
+  const defaultVideoUrl = "https://www.youtube.com/watch?v=Lc4eeUXtybU";
+  const defaultVideoCaption = "Arquitectura que Respira";
+  const defaultVideoSecondaryCaption = "(0:24 Sec)";
   const defaultCards = [
     {
       title: "Seguridad Integral",
@@ -84,7 +84,7 @@ const Feature1b = ({
   const isMobile = useIsMobile();
 
   return (
-    <section className={cn("bg-muted py-24 font-sans", className)}>
+    <section className={cn("bg-muted font-sans", className)}>
       <div className="container mx-auto flex flex-col gap-2">
         <div className="grid w-full grid-cols-1 gap-1 lg:grid-cols-4">
           {finalCards.map((card, index) => (
@@ -195,7 +195,7 @@ const Feature1b = ({
               {isYouTube ? (
                 <iframe
                   className="h-full w-full"
-                  src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1`}
+                  src="https://www.youtube.com/embed/Lc4eeUXtybU?start=230&end=254&autoplay=1&rel=0"
                   title="Video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
