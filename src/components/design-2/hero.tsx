@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import React, { useRef } from "react";
 
@@ -17,13 +17,25 @@ const Hero = ({ className }: HeroProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { x, y } = useMousePosition(containerRef as React.RefObject<HTMLElement>);
+  
+  // Parallax effect for background image
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 500], [0, 200]);
+  
   return (
     <section className={cn("w-full", className)}>
       <div className="w-full">
         <div
           ref={containerRef}
-          className="relative flex h-screen flex-col items-center justify-center gap-4 overflow-hidden bg-[url('/images/design-2/herob3.jpg')] bg-center xl:bg-cover"
+          className="relative flex h-screen flex-col items-center justify-center gap-4 overflow-hidden"
         >
+          {/* Background image with parallax effect */}
+          <motion.img
+            src="/images/design-2/herob3.jpg"
+            alt="Hero background"
+            className="absolute inset-0 h-[120%] w-full object-cover object-center xl:object-cover"
+            style={{ y: yParallax }}
+          />
           <div className="absolute bottom-10 left-10 flex flex-col mix-blend-exclusion">
             <p className="text-xs text-secondary">x : {Math.round(x)}</p>
             <p className="text-xs text-secondary">y : {Math.round(y)}</p>

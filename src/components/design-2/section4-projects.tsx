@@ -1,99 +1,150 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import React, { useEffect, useState } from "react";
+
 import { cn } from "@/lib/utils";
 
-const projects = [
-  {
-    src: "/images/design-2/carrusel1.jpg",
-    title: "Proyecto Premium 1",
-  },
-  {
-    src: "/images/design-2/carrusel2.jpg",
-    title: "Proyecto Premium 2",
-  },
-  {
-    src: "/images/design-2/carrusel3.jpg",
-    title: "Proyecto Premium 3",
-  },
-  {
-    src: "/images/design-2/carrusel4.jpg",
-    title: "Proyecto Premium 4",
-  },
-  {
-    src: "/images/design-2/carrusel5.jpg",
-    title: "Proyecto Premium 5",
-  },
-];
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 
 interface Section4ProjectsProps {
   className?: string;
 }
 
 const Section4Projects = ({ className }: Section4ProjectsProps) => {
-  const duplicatedProjects = [...projects, ...projects];
-  const controls = useAnimation();
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  const Images = [
+    {
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg",
+      title: "Residencial Altos del Bosque",
+      description: "Donde la naturaleza abraza tu hogar.",
+      link: "#",
+    },
+    {
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw13.jpeg",
+      title: "Torre Horizonte",
+      description: "Espacios inteligentes para la vida moderna.",
+      link: "#",
+    },
+    {
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw14.jpeg",
+      title: "Eco-Villas Maderas",
+      description: "Sostenibilidad y lujo en equilibrio.",
+      link: "#",
+    },
+    {
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw16.jpeg",
+      title: "Diseños a Medida",
+      description: "Arquitectura personalizada para tu visión única.",
+      link: "#",
+    },
+    {
+      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw17.jpeg",
+      title: "Diseños a Medida",
+      description: "Arquitectura personalizada para tu visión única.",
+      link: "#",
+    },
+  ];
 
   useEffect(() => {
-    controls.start({
-      x: ["0%", "-50%"],
-      transition: {
-        repeat: Infinity,
-        ease: "linear",
-        duration: 30,
-      },
+    if (!api) return;
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
     });
-  }, [controls]);
+  }, [api]);
 
   return (
     <section className={cn("py-32", className)}>
-      <div className="container mx-auto px-4">
-        <h1 className="font-sans text-6xl font-semibold">Nuestros Proyectos</h1>
-        <p className="mt-3 max-w-xl text-muted-foreground">
-          Descubre nuestra colección de proyectos premium, diseñados con excelencia arquitectónica y acabados de primera calidad.
-        </p>
-        <div className="relative w-full overflow-hidden pt-16">
-          <motion.div
-            className="flex gap-6"
-            animate={controls}
-            onMouseEnter={() => {
-              controls.stop();
-            }}
-            onMouseLeave={() => {
-              controls.start({
-                x: ["0%", "-50%"],
-                transition: {
-                  repeat: Infinity,
-                  ease: "linear",
-                  duration: 30,
-                },
-              });
-            }}
-          >
-            {duplicatedProjects.map((project, index) => (
-              <div
-                key={`${project.title}-${index}`}
-                className="min-w-[300px] flex-shrink-0 md:min-w-[400px] lg:min-w-[450px]"
-              >
-                <div className="group relative overflow-hidden rounded-none shadow-lg">
-                  <img
-                    src={project.src}
-                    alt={project.title}
-                    className="h-[400px] w-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                    <h3 className="text-white text-xl font-semibold">
-                      {project.title}
-                    </h3>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="container mx-auto px-4"
+      >
+        <Carousel
+          setApi={setApi}
+          className="w-full"
+          opts={{
+            loop: true,
+            slidesToScroll: 1,
+          }}
+          plugins={[
+            AutoScroll({
+              speed: 1,
+              stopOnInteraction: false,
+              stopOnMouseEnter: true,
+            }),
+          ]}
+        >
+          <CarouselContent className="flex w-full gap-4">
+            {Images.map((img, index) => (
+              <CarouselItem key={index} className="w-full basis-[91%]">
+                <div className="p-1">
+                  <div
+                    key={index}
+                    className="relative flex h-[600px] flex-col items-end justify-between bg-muted p-8 overflow-hidden rounded-none"
+                  >
+                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
+                      <img
+                        src={img.image}
+                        alt={img.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="z-10 mt-auto text-white">
+                      <h1 className="max-w-lg text-right text-6xl font-light tracking-tighter">
+                        {img.title}
+                      </h1>
+                      <p className="my-6 max-w-lg text-right text-lg">
+                        {img.description}
+                      </p>
+                    </div>
+                    <div className="z-10 flex w-full justify-between">
+                      <a href={img.link}>
+                        <Button
+                          variant="outline"
+                          className="text-md group flex w-fit items-center justify-center gap-2 rounded-full px-4 py-1 tracking-tight bg-background/80 backdrop-blur-sm"
+                        >
+                          VER DETALLES
+                          <ArrowRight className="size-4 -rotate-45 transition-all ease-out group-hover:ml-3 group-hover:rotate-0" />
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </CarouselItem>
             ))}
-          </motion.div>
-        </div>
-      </div>
+          </CarouselContent>
+
+          {/* Navigation Dots */}
+          <div className="mt-4 flex justify-center gap-2">
+            {Array.from({ length: Images.length }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={cn(
+                  "h-2.5 w-2.5 rounded-full transition-all",
+                  current === index
+                    ? "w-4 bg-primary"
+                    : "bg-muted-foreground/50"
+                )}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </Carousel>
+      </motion.div>
     </section>
   );
 };

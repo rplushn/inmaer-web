@@ -3,6 +3,7 @@ import { Hero } from "@/components/design-2/hero";
 import { ConceptText } from "@/components/design-2/section2-concept";
 import { Section3Amenities } from "@/components/design-2/section3-amenities";
 import { Section4Projects } from "@/components/design-2/section4-projects";
+import { Section5Projects } from "@/components/design-2/section5-projects";
 
 export default function DesignPage2() {
   return (
@@ -20,6 +21,31 @@ export default function DesignPage2() {
         />
         
         <Section4Projects />
+        <Section5Projects
+          sectionLabel="Nuestro Impacto"
+          heading="Transformando ideas en experiencias duraderas, "
+          subheading="a través de diseño cuidadoso y tecnología confiable."
+          descriptionHeading="Construido para crecer, no solo para lanzar."
+          description=" Creamos productos digitales que escalan con tu negocio. Desde el concepto hasta la producción, nuestro equipo se enfoca en rendimiento, precisión y sistemas de diseño que resisten el paso del tiempo."
+          image="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img9.jpeg"
+          stats={[
+            {
+              value: "120+",
+              label: "Proyectos lanzados a nivel mundial",
+              description:
+                "Desde startups hasta marcas globales, hemos ayudado a más de 120 clientes a construir experiencias digitales significativas que generan impacto medible.",
+            },
+            {
+              value: "98%",
+              label: "Tasa de retención de clientes",
+              logos: [
+                "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-3.svg",
+                "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-2.svg",
+                "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/company/fictional-company-logo-1.svg",
+              ],
+            },
+          ]}
+        />
       </div>
     </>
   );
