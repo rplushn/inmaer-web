@@ -26,40 +26,32 @@ const Hero245 = ({ className }: Hero245Props) => {
           <div className="mb-10 flex items-center justify-center gap-3 rounded-full bg-muted-foreground/5 p-1 pr-4 text-sm font-medium tracking-tight text-muted-foreground">
             <div className="flex items-center gap-3 rounded-full bg-muted-foreground/10 px-4 py-1.5">
               <span className="inline-block size-2 rounded-full bg-blue-500" />
-              <span>We're Hiring</span>
+              <span>Nuevos Proyectos 2026</span>
             </div>
             <div className="flex items-center gap-2">
-              Join Our Team <ArrowRight className="size-4" />
+              Ver Catálogo <ArrowRight className="size-4" />
             </div>
           </div>
           <h1 className="max-w-2xl text-5xl font-semibold tracking-tighter lg:text-6xl">
-            Elevate Your Next Project With,{" "}
-            <PointerHighlight containerClassName="inline-block">
-              <span>Production-Ready</span>
-            </PointerHighlight>{" "}
-            Shadcnblocks
+            Construyendo el Futuro de Tu Familia en Honduras
           </h1>
           <p className="mt-10 max-w-lg text-muted-foreground">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            atque perferendis fugit molestiae quae ad molestias eveniet alias
+            Desarrollos habitacionales que combinan diseño vanguardista, seguridad y plusvalía. Más de una década creando hogares donde la vida sucede.
           </p>
 
           <div className="mt-10 flex w-full flex-col items-center justify-center gap-2">
             <Button className="rounded-2xl px-6 py-6 text-background shadow-[0px_1px_3px_#0000001a,inset_0px_2px_0px_#ffffff40] md:rounded-3xl md:px-7 md:py-7 md:text-base">
-              <p className="mr-1 text-xl text-background md:mr-3 md:text-2xl">
-                
-              </p>{" "}
-              Download for Mac
+              Agendar Visita
             </Button>
             <Button className="text-sm text-muted-foreground" variant="link">
-              Download for Windows
+              Consulta nuestras opciones de financiamiento
             </Button>
           </div>
         </div>
         <div className="relative mt-10 flex h-[80vh] w-full items-center justify-center overflow-hidden rounded-[2rem] border">
           <img
-            src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/guri3/img7.jpeg"
-            alt="hero"
+            src="/hero4.jpg"
+            alt="Residencia moderna INMAER en Honduras"
             className="size-full object-cover"
           />
         </div>

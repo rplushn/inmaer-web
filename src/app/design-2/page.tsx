@@ -12,6 +12,10 @@ export default function DesignPage2() {
       <div className="relative z-10 bg-background">
         <ConceptText />
         <Feature1b />
+        <ConceptText
+          title="UN LUGAR DONDE LA NATURALEZA, EL DISEÑO Y LA OPORTUNIDAD SE UNEN."
+          buttonText="NUESTRA VISIÓN +"
+        />
       </div>
     </>
   );
