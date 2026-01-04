@@ -4,6 +4,7 @@ import { ConceptText } from "@/components/design-2/section2-concept";
 import { Section3Amenities } from "@/components/design-2/section3-amenities";
 import { Section4Projects } from "@/components/design-2/section4-projects";
 import { Section5Projects } from "@/components/design-2/section5-projects";
+import { Section6Map } from "@/components/design-2/section6-map";
 
 export default function DesignPage2() {
   return (
@@ -46,6 +47,7 @@ export default function DesignPage2() {
             },
           ]}
         />
+        <Section6Map />
       </div>
     </>
   );
