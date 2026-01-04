@@ -9,11 +9,11 @@ import { useMousePosition } from "@/hooks/use-mouse-position";
 
 import VariableFontAndCursor from "@/components/fancy/components/text/variable-font-and-cursor";
 
-interface Hero222Props {
+interface HeroProps {
   className?: string;
 }
 
-const Hero222 = ({ className }: Hero222Props) => {
+const Hero = ({ className }: HeroProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { x, y } = useMousePosition(containerRef as React.RefObject<HTMLElement>);
@@ -28,8 +28,8 @@ const Hero222 = ({ className }: Hero222Props) => {
             <p className="text-xs text-secondary">x : {Math.round(x)}</p>
             <p className="text-xs text-secondary">y : {Math.round(y)}</p>
           </div>
-          <div className="relative z-10 h-full w-full mix-blend-exclusion">
-            <div className="mx-auto mt-[15.5rem] w-fit">
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center mix-blend-exclusion">
+            <div className="mx-auto w-fit">
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -70,11 +70,12 @@ const Hero222 = ({ className }: Hero222Props) => {
                 style={{
                   top: `${y - 2}px`,
                   left: `${x - 2}px`,
+                  color: 'rgba(10, 10, 10, 1)',
                 }}
               />
             </div>
           </div>
-          <button className="group z-[99] mb-10 flex items-center gap-2 bg-background px-4 py-2 text-black transition-all duration-300 hover:gap-4">
+          <button className="group absolute bottom-20 left-1/2 z-[99] -translate-x-1/2 flex items-center gap-2 bg-background px-4 py-2 text-black transition-all duration-300 hover:gap-4">
             Inicia ya
             <ArrowRight
               className="-rotate-45 transition-all duration-300 group-hover:rotate-0"
@@ -87,4 +88,4 @@ const Hero222 = ({ className }: Hero222Props) => {
   );
 };
 
-export { Hero222 };
+export { Hero };

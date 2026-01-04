@@ -16,7 +16,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-interface Feature1bProps {
+interface Section3AmenitiesProps {
   className?: string;
   imageSrc?: string;
   imageAlt?: string;
@@ -31,7 +31,7 @@ interface Feature1bProps {
   }[];
 }
 
-const Feature1b = ({
+const Section3Amenities = ({
   className,
   imageSrc,
   imageAlt,
@@ -39,7 +39,7 @@ const Feature1b = ({
   videoCaption,
   videoSecondaryCaption,
   cards,
-}: Feature1bProps = {}) => {
+}: Section3AmenitiesProps = {}) => {
   const defaultImageSrc = "https://img.youtube.com/vi/Lc4eeUXtybU/sddefault.jpg";
   const defaultImageAlt = "Arquitectura que Respira - Video preview";
   const defaultVideoUrl = "https://www.youtube.com/watch?v=Lc4eeUXtybU";
@@ -84,7 +84,7 @@ const Feature1b = ({
   const isMobile = useIsMobile();
 
   return (
-    <section className={cn("bg-muted font-sans", className)}>
+    <section className={cn("bg-muted font-sans", className)} style={{ color: 'rgba(10, 10, 10, 1)' }}>
       <div className="container mx-auto flex flex-col gap-2">
         <div className="grid w-full grid-cols-1 gap-1 lg:grid-cols-4">
           {finalCards.map((card, index) => (
@@ -218,4 +218,4 @@ const Feature1b = ({
   );
 };
 
-export { Feature1b };
+export { Section3Amenities };

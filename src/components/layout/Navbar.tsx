@@ -3,12 +3,12 @@ import { siteConfig } from "@/config/site";
 
 export function Navbar() {
   return (
-    <nav className="relative z-50 border-b bg-background/95 backdrop-blur-sm">
+    <nav className="relative z-50 border-b bg-background/95 backdrop-blur-sm h-[68px]">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-semibold">
+        <Link href="/" className="text-[22px] font-semibold">
           {siteConfig.name}
         </Link>
-        <ul className="flex items-center gap-6">
+        <ul className="flex items-center gap-6 text-[22px]">
           {siteConfig.navLinks.map((link) => (
             <li key={link.href}>
               <Link
