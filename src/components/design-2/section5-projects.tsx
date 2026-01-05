@@ -40,14 +40,14 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
 
   return (
     <section
-      className={cn("bg-[#F5F5F5] py-24", className)}
+      className={cn("bg-transparent py-[5px]", className)}
       style={{
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       }}
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 md:gap-16">
+        <div className="grid grid-cols-1 items-center gap-7 md:grid-cols-2 md:gap-14">
           {/* Columna Izquierda - Imagen */}
           <div className="w-full flex justify-start">
             <div className="relative aspect-square w-[70%] overflow-hidden rounded-none">
@@ -56,7 +56,7 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
                   key={features[hoveredIndex ?? 0].image}
                   src={features[hoveredIndex ?? 0].image}
                   alt="Arquitectura INMAER"
-                  className="absolute inset-0 w-full h-full object-cover rounded-none"
+                  className="absolute inset-0 w-full h-[400px] object-cover rounded-none"
                   initial={{ y: "100%" }}
                   animate={{ y: "0%" }}
                   exit={{ y: "-20%", opacity: 0 }}
@@ -72,7 +72,7 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
           {/* Columna Derecha - Lista de Características */}
           <div className="flex flex-col">
             {/* Título General */}
-            <h2 className="mb-12 text-[85px] font-normal uppercase leading-[78.25px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
+            <h2 className="mb-10 text-[77px] font-normal uppercase leading-[70px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
               POR QUÉ INMAER?
             </h2>
 
@@ -86,9 +86,9 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
                   key={index}
                   onMouseEnter={() => setHoveredIndex(index)}
                   className={cn(
-                    "border-t border-gray-300 p-8 first:border-t-0 transition-all duration-300 cursor-pointer",
+                    "border-t border-gray-300 p-7 first:border-t-0 transition-all duration-300 cursor-pointer",
                     index === hoveredIndex
-                      ? "bg-[#18181b] text-white"
+                      ? "bg-[#2E2E2E] text-white"
                       : hoveredIndex !== null
                         ? "bg-transparent text-gray-400"
                         : "bg-transparent text-black"
@@ -96,7 +96,7 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
                 >
                   <h3
                     className={cn(
-                      "mb-4 text-[35px] font-light uppercase tracking-tight transition-colors duration-300",
+                      "mb-3 text-[32px] font-light uppercase tracking-tight transition-colors duration-300",
                       index === hoveredIndex
                         ? "text-white"
                         : hoveredIndex !== null

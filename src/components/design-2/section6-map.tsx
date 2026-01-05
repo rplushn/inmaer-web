@@ -62,20 +62,23 @@ const Section6Map = ({ className }: Section6MapProps) => {
 
   return (
     <section
-      className={cn("bg-[#F5F5F5] py-24", className)}
+      className={cn("bg-transparent pb-5", className)}
       style={{
         fontFamily:
           '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
       }}
     >
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
           {/* Columna Izquierda - Título */}
           <div className="flex flex-col">
-            <h2 className="mb-8 text-[85px] font-normal uppercase leading-[78.25px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
+            <h2 className="mb-7 text-[77px] font-normal uppercase leading-[70px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
               PRESENCIA NACIONAL
             </h2>
-            <p className="text-lg leading-relaxed text-gray-700 max-w-md">
+            <p 
+              className="text-base leading-relaxed text-gray-700 max-w-md"
+              style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif" }}
+            >
               Con proyectos en múltiples departamentos de Honduras, expandimos
               nuestra presencia para llevar desarrollo y oportunidades a más
               comunidades.
@@ -83,7 +86,7 @@ const Section6Map = ({ className }: Section6MapProps) => {
           </div>
 
           {/* Columna Derecha - Mapa */}
-          <div className="relative w-full overflow-visible min-h-[600px] py-8">
+          <div className="relative w-full overflow-visible min-h-[540px] py-7">
             <div
               ref={mapContainerRef}
               className="relative w-full aspect-square max-w-4xl mx-auto"

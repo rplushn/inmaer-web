@@ -65,7 +65,7 @@ const Section4Projects = ({ className }: Section4ProjectsProps) => {
   }, [api]);
 
   return (
-    <section className={cn("py-32", className)}>
+    <section className={cn("py-28", className)}>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -82,18 +82,18 @@ const Section4Projects = ({ className }: Section4ProjectsProps) => {
           plugins={[
             AutoScroll({
               speed: 1,
-              stopOnInteraction: false,
-              stopOnMouseEnter: true,
+              stopOnInteraction: false, // No mata el autoplay permanentemente - se reanuda automáticamente
+              stopOnMouseEnter: false, // ¡CRÍTICO! Sigue corriendo con hover
             }),
           ]}
         >
-          <CarouselContent className="flex w-full gap-4">
+          <CarouselContent className="flex w-full gap-3">
             {Images.map((img, index) => (
               <CarouselItem key={index} className="w-full basis-[91%]">
                 <div className="p-1">
                   <div
                     key={index}
-                    className="relative flex h-[600px] flex-col items-end justify-between bg-muted p-8 overflow-hidden rounded-none"
+                    className="relative flex h-[540px] flex-col items-end justify-between bg-muted p-7 overflow-hidden rounded-none"
                   >
                     <div className="pointer-events-none absolute top-0 left-0 h-full w-full">
                       <img
@@ -103,10 +103,10 @@ const Section4Projects = ({ className }: Section4ProjectsProps) => {
                       />
                     </div>
                     <div className="z-10 mt-auto text-white">
-                      <h1 className="max-w-lg text-right text-6xl font-light tracking-tighter">
+                      <h1 className="max-w-lg text-right text-5xl font-light tracking-tighter">
                         {img.title}
                       </h1>
-                      <p className="my-6 max-w-lg text-right text-lg">
+                      <p className="my-5 max-w-lg text-right text-base">
                         {img.description}
                       </p>
                     </div>
@@ -128,15 +128,15 @@ const Section4Projects = ({ className }: Section4ProjectsProps) => {
           </CarouselContent>
 
           {/* Navigation Dots */}
-          <div className="mt-4 flex justify-center gap-2">
+          <div className="mt-3 flex justify-center gap-2">
             {Array.from({ length: Images.length }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => api?.scrollTo(index)}
                 className={cn(
-                  "h-2.5 w-2.5 rounded-full transition-all",
+                  "h-2 w-2 rounded-full transition-all",
                   current === index
-                    ? "w-4 bg-primary"
+                    ? "w-3.5 bg-primary"
                     : "bg-muted-foreground/50"
                 )}
                 aria-label={`Go to slide ${index + 1}`}

@@ -27,7 +27,7 @@ const Hero = ({ className }: HeroProps) => {
       <div className="w-full h-full m-0 p-0 overflow-hidden">
         <div
           ref={containerRef}
-          className="relative flex h-full flex-col items-center justify-center gap-4 overflow-hidden"
+          className="relative flex h-full flex-col items-center justify-center gap-3 overflow-hidden"
         >
           {/* Background image with parallax effect */}
           <motion.img
@@ -57,7 +57,7 @@ const Hero = ({ className }: HeroProps) => {
               >
                 <VariableFontAndCursor
                   label="INMAER"
-                  className="text-5xl tracking-[-5px] text-white leading-none sm:text-7xl md:text-[12rem] lg:text-[14rem] md:tracking-[-13px]"
+                  className="text-4xl tracking-[-5px] text-white leading-none sm:text-6xl md:text-[10.8rem] lg:text-[12.6rem] md:tracking-[-13px]"
                   fontVariationMapping={{
                     y: { name: "wght", min: 100, max: 900 },
                     x: { name: "slnt", min: 0, max: -10 },
@@ -65,6 +65,14 @@ const Hero = ({ className }: HeroProps) => {
                   containerRef={containerRef as React.RefObject<HTMLDivElement>}
                 />
               </motion.div>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="mt-4 text-center font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-white mix-blend-exclusion sm:mt-6 sm:text-xs md:text-sm"
+              >
+                Más de una década construyendo patrimonio en Honduras
+              </motion.p>
               <div
                 className="absolute top-0 h-screen w-px -translate-x-1/2 bg-background"
                 style={{
@@ -87,11 +95,11 @@ const Hero = ({ className }: HeroProps) => {
               />
             </div>
           </div>
-          <button className="group absolute bottom-20 left-1/2 z-[99] -translate-x-1/2 flex items-center gap-2 bg-background px-4 py-2 text-black transition-all duration-300 hover:gap-4">
+          <button className="group absolute bottom-16 left-1/2 z-[99] -translate-x-1/2 flex items-center gap-2 bg-background px-3 py-1.5 text-black transition-all duration-300 hover:gap-3">
             Inicia ya
             <ArrowRight
               className="-rotate-45 transition-all duration-300 group-hover:rotate-0"
-              size={16}
+              size={14}
             />
           </button>
         </div>

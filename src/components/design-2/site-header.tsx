@@ -46,8 +46,8 @@ export function SiteHeader() {
           className={cn(
             "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300",
             isScrolled
-              ? "bg-white/70 backdrop-blur-md shadow-sm py-4"
-              : "bg-white/10 backdrop-blur-sm py-6"
+              ? "bg-white/70 backdrop-blur-md shadow-sm py-3"
+              : "bg-white/10 backdrop-blur-sm py-4"
           )}
         >
           <div className="container mx-auto px-4">
@@ -70,7 +70,7 @@ export function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "text-[17px] font-medium transition-colors hover:text-primary",
+                      "text-[14px] font-normal tracking-wide transition-colors hover:text-primary",
                       "text-foreground"
                     )}
                   >
