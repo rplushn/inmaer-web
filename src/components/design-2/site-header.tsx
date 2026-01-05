@@ -70,7 +70,7 @@ export function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary",
+                      "text-[17px] font-medium transition-colors hover:text-primary",
                       "text-foreground"
                     )}
                   >

@@ -5,6 +5,8 @@ import { Section3Amenities } from "@/components/design-2/section3-amenities";
 import { Section4Projects } from "@/components/design-2/section4-projects";
 import { Section5Projects } from "@/components/design-2/section5-projects";
 import { Section6Map } from "@/components/design-2/section6-map";
+import { Section7Projects } from "@/components/design-2/section7-projects";
+import { Section8Cta1 } from "@/components/design-2/section8-cta1";
 
 export default function DesignPage2() {
   return (
@@ -48,6 +50,8 @@ export default function DesignPage2() {
           ]}
         />
         <Section6Map />
+        <Section7Projects />
+        <Section8Cta1 />
       </div>
     </>
   );
