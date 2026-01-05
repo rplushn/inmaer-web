@@ -11,9 +11,7 @@ import { Section8Cta1 } from "@/components/design-2/section8-cta1";
 export default function DesignPage2() {
   return (
     <>
-      <div className="-mt-20">
-        <Hero />
-      </div>
+      <Hero />
       <div className="relative z-10 bg-background" style={{ color: 'rgba(10, 10, 10, 1)' }}>
         <ConceptText />
         <Section3Amenities />

@@ -23,11 +23,11 @@ const Hero = ({ className }: HeroProps) => {
   const yParallax = useTransform(scrollY, [0, 500], [0, 200]);
   
   return (
-    <section className={cn("w-full", className)}>
-      <div className="w-full">
+    <section className={cn("relative w-full h-screen min-h-[100dvh] m-0 p-0 overflow-hidden", className)}>
+      <div className="w-full h-full m-0 p-0 overflow-hidden">
         <div
           ref={containerRef}
-          className="relative flex h-screen flex-col items-center justify-center gap-4 overflow-hidden"
+          className="relative flex h-full flex-col items-center justify-center gap-4 overflow-hidden"
         >
           {/* Background image with parallax effect */}
           <motion.img
