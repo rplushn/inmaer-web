@@ -14,12 +14,12 @@ interface ConceptTextProps {
 const ConceptText = ({ 
   className,
   label = "CONCEPTO",
-  title = "CASAS PREMIUM, CONSTRUIDAS PARA VIVIR — NO SOLO PARA VISITAR",
+  title = "NO VENDEMOS LOTES. DESARROLLAMOS EL FUTURO.",
   description = (
     <>
-      Somos una empresa hondureña con más de 10 años de experiencia, comprometidos con elevar el estándar de vida en la zona oriental. Nuestro legado se construye sobre la confianza de cientos de familias que hoy disfrutan de hogares seguros, modernos y con alta plusvalía.
+      <strong>Más que metros cuadrados, construimos futuro.</strong>
       <br /><br />
-      En INMAER no solo construimos casas; diseñamos entornos donde la comunidad florece, integrando seguridad 24/7, áreas verdes y acabados de primera calidad que garantizan que tu inversión crezca con el tiempo.
+      INMAER redefine el estándar inmobiliario. Transformamos tierras en plusvalia y espacios en verdaderos ecosistemas de vida. Donde otros ven terrenos, nosotros vemos ciudades conectadas, seguras y rentables.
     </>
   ),
   buttonText,

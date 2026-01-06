@@ -68,10 +68,10 @@ const Hero = ({ className }: HeroProps) => {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
-                className="mt-4 text-center font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-white mix-blend-exclusion sm:mt-6 sm:text-xs md:text-sm"
+                transition={{ duration: 0.7, delay: 0.5 }}
+                className="mt-6 text-center font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-white mix-blend-exclusion sm:mt-8 sm:text-xs md:text-sm"
               >
-                Más de una década construyendo patrimonio en Honduras
+                MÁS DE UNA DÉCADA CONSTRUYENDO PATRIMONIO EN HONDURAS
               </motion.p>
               <div
                 className="absolute top-0 h-screen w-px -translate-x-1/2 bg-background"
