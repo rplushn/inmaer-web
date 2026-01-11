@@ -53,11 +53,11 @@ export function SiteHeader() {
           >
             <div className="container mx-auto px-4">
               <div className="flex items-center justify-between">
-                {/* Left Side: Logo (Links to new minimal homepage) */}
+                {/* Left Side: Logo - Now bolder and tighter letter spacing */}
                 <Link
                   href="/"
                   className={cn(
-                    "text-xl font-semibold transition-colors uppercase tracking-widest",
+                    "text-xl font-bold transition-colors uppercase tracking-wide",
                     "text-black"
                   )}
                 >
