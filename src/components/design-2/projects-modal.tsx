@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { projects } from "@/data/design-2/projects";
 
 interface ProjectsModalProps {
@@ -21,82 +21,87 @@ export function ProjectsModal({ isOpen, onClose }: ProjectsModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[60] bg-white/90 backdrop-blur-md"
           />
 
           {/* Modal Content */}
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-x-4 top-[5%] md:inset-x-0 md:top-[10%] bottom-[5%] z-[70] mx-auto w-full max-w-7xl overflow-hidden rounded-xl bg-[#1a1a1a] shadow-2xl flex flex-col border border-white/10"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-0 z-[70] flex flex-col bg-white overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 px-6 py-4 md:px-8 bg-[#1a1a1a]">
+            <div className="flex items-center justify-between px-6 py-6 md:px-12 md:py-8 border-b border-gray-100">
               <h2 
-                className="text-2xl font-light tracking-widest text-white uppercase"
+                className="text-2xl md:text-3xl font-thin tracking-[0.2em] text-black uppercase"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
-                Colección Residencial
+                Portafolio Selecto
               </h2>
               <button
                 onClick={onClose}
-                className="rounded-full p-2 text-white/50 transition-colors hover:bg-white/10 hover:text-white"
+                className="group p-2 text-black transition-transform hover:rotate-90 duration-300"
               >
-                <X size={24} />
+                <X size={32} strokeWidth={1} />
               </button>
             </div>
 
             {/* Scrollable Grid */}
-            <div className="flex-1 overflow-y-auto p-6 md:p-8 bg-[#1a1a1a]">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                {projects.map((project) => (
-                  <a
-                    key={project.id}
-                    href="#" // Aquí iría el link real a la página del proyecto cuando existan
-                    className="group relative flex aspect-[4/5] w-full flex-col overflow-hidden bg-[#242424] transition-all hover:-translate-y-1 hover:shadow-xl rounded-none border border-white/5"
-                  >
-                    {/* Image Container */}
-                    <div className="relative h-[60%] w-full overflow-hidden">
-                      <div className="absolute inset-0 bg-black/20 transition-opacity group-hover:opacity-0" />
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      {/* Badge Ubicación */}
-                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-sm px-3 py-1 text-[10px] font-medium tracking-widest text-white uppercase">
-                        {project.location}
+            <div className="flex-1 overflow-y-auto p-6 md:p-12">
+              <div className="container mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                  {projects.map((project, idx) => (
+                    <Link
+                      key={project.id}
+                      href="/design-2/proyectos" // Link directo a la página de proyectos
+                      onClick={onClose}
+                      className="group block"
+                    >
+                      {/* Image Container */}
+                      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100 mb-6">
+                        <motion.img
+                          initial={{ scale: 1.1 }}
+                          whileInView={{ scale: 1 }}
+                          transition={{ duration: 1.5 }}
+                          src={project.image}
+                          alt={project.name}
+                          className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
+                        />
+                        <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors" />
                       </div>
-                    </div>
 
-                    {/* Content */}
-                    <div className="flex flex-1 flex-col justify-between p-5">
-                      <div>
-                        <h3 className="mb-2 text-lg font-medium text-white uppercase tracking-wide">
-                          {project.name}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-gray-400 line-clamp-3 font-light">
+                      {/* Content */}
+                      <div className="flex flex-col gap-2">
+                        <span className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">
+                          {project.location}
+                        </span>
+                        <div className="flex justify-between items-baseline border-b border-gray-100 pb-4 group-hover:border-black transition-colors duration-500">
+                          <h3 className="text-xl md:text-2xl font-light text-black uppercase tracking-wide">
+                            {project.name}
+                          </h3>
+                          <ArrowRight className="w-5 h-5 text-black opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" strokeWidth={1} />
+                        </div>
+                        <p className="text-sm text-gray-500 font-light leading-relaxed mt-2 line-clamp-2">
                           {project.description}
                         </p>
                       </div>
-
-                      <div className="mt-4 flex items-center text-xs font-bold uppercase tracking-widest text-white/80 group-hover:text-white">
-                        Ver Detalles
-                        <ArrowRight className="ml-2 h-3 w-3 transition-transform group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </a>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Footer / CTA opcional */}
-            <div className="border-t border-white/10 bg-[#1a1a1a] px-6 py-4 text-center md:px-8">
-              <p className="text-xs text-gray-500 uppercase tracking-widest">
-                Desarrollando el futuro de Honduras
-              </p>
+            {/* Footer */}
+            <div className="border-t border-gray-100 px-6 py-6 text-center md:px-12 bg-gray-50">
+              <Link 
+                href="/design-2/proyectos" 
+                onClick={onClose}
+                className="text-xs md:text-sm text-black uppercase tracking-[0.3em] hover:text-gray-500 transition-colors"
+              >
+                Ver todos los detalles
+              </Link>
             </div>
           </motion.div>
         </>
