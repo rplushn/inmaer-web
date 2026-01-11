@@ -5,13 +5,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
-import { ProjectsModal } from "./projects-modal";
 
 export function SiteHeader() {
   const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
 
   const { scrollY } = useScroll();
 
@@ -55,7 +53,7 @@ export function SiteHeader() {
           >
             <div className="container mx-auto px-4">
               <div className="flex items-center justify-between">
-                {/* Left Side: Logo */}
+                {/* Left Side: Logo (Links to new minimal homepage) */}
                 <Link
                   href="/"
                   className={cn(
@@ -68,7 +66,7 @@ export function SiteHeader() {
 
                 {/* Center: Navigation Links */}
                 <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-                  {/* INICIO First */}
+                  {/* INICIO (New Minimal Homepage) */}
                   <Link
                     href="/"
                     className={cn(
@@ -79,35 +77,41 @@ export function SiteHeader() {
                     Inicio
                   </Link>
 
-                   {/* PROYECTOS Second (with modal trigger) */}
-                  <button
-                    onClick={() => setIsProjectsModalOpen(true)}
+                   {/* PROYECTOS (Direct link to new projects page, NO MODAL) */}
+                   <Link
+                    href="/design-2/proyectos"
                     className={cn(
-                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600 cursor-pointer bg-transparent border-none p-0",
+                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
                       "text-black"
                     )}
                   >
                     Proyectos
-                  </button>
+                  </Link>
                   
-                  {/* Other Links (Nosotros, Contacto) */}
-                  {siteConfig.navLinks
-                    .filter(l => l.label !== "Proyectos" && l.label !== "Inicio") 
-                    .map((link) => (
-                     <Link
-                      key={link.href}
-                      href={link.href}
-                      className={cn(
-                        "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
-                        "text-black"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
+                  {/* NOSOTROS (Direct link to new nosotros page) */}
+                  <Link
+                    href="/design-2/nosotros"
+                    className={cn(
+                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
+                      "text-black"
+                    )}
+                  >
+                    Nosotros
+                  </Link>
+
+                   {/* CONTACTO (Direct link to new contacto page) */}
+                   <Link
+                    href="/design-2/contacto"
+                    className={cn(
+                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
+                      "text-black"
+                    )}
+                  >
+                    Contacto
+                  </Link>
                 </nav>
 
-                {/* Right Side: CTA Button */}
+                {/* Right Side: CTA Button (Keeps pointing to Design-2 as anchor/fallback for now) */}
                 <Link
                   href="/design-2"
                   className={cn(
@@ -124,11 +128,6 @@ export function SiteHeader() {
           </motion.header>
         )}
       </AnimatePresence>
-
-      <ProjectsModal 
-        isOpen={isProjectsModalOpen} 
-        onClose={() => setIsProjectsModalOpen(false)} 
-      />
     </>
   );
 }
