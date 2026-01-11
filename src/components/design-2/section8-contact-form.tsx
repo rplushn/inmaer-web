@@ -1,6 +1,8 @@
 "use client";
 
-import { ArrowRight, CornerDownRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowDownLeft, Mail, Phone } from "lucide-react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface Section8ContactFormProps {
@@ -9,84 +11,133 @@ interface Section8ContactFormProps {
 
 const Section8ContactForm = ({ className }: Section8ContactFormProps) => {
   return (
-    <section
-      className={cn("bg-[#2E2E2E] text-white py-24 md:py-32", className)}
-      style={{
-        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-      }}
-    >
+    <section className="py-24 md:py-32 bg-[#1C1C1C] text-white">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
-          {/* Columna Izquierda */}
-          <div className="flex flex-col justify-between h-full">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24">
+          
+          {/* Left Column - Title & Info */}
+          <div className="md:w-1/2 flex flex-col justify-between">
             <div>
-              <h2 className="text-[60px] md:text-[90px] font-medium leading-[0.9] tracking-tight mb-8">
-                Hablemos<span className="text-white">*</span>
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed max-w-md mb-12 font-light">
-                Estamos listos para asesorarte en tu próxima inversión. 
-                Déjanos tus datos y un experto inmobiliario se pondrá en contacto contigo para construir tu futuro.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-auto pt-12">
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="p-2 border border-white/20 rounded-full group-hover:border-white transition-colors">
-                  <span className="text-xl">📞</span>
-                </div>
-                <span className="text-gray-300 group-hover:text-white transition-colors">+504 9999-9999</span>
-              </div>
-              <div className="flex items-center gap-3 group cursor-pointer">
-                <div className="p-2 border border-white/20 rounded-full group-hover:border-white transition-colors">
-                  <span className="text-xl">✉️</span>
-                </div>
-                <span className="text-gray-300 group-hover:text-white transition-colors">info@inmaer.hn</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Columna Derecha - Formulario */}
-          <div className="flex flex-col">
-            <form className="space-y-12">
-              <div className="group">
-                <label className="block text-sm text-gray-500 mb-2 group-focus-within:text-white transition-colors">
-                  Nombre*
-                </label>
-                <input 
-                  type="text" 
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:outline-none focus:border-white transition-colors"
-                />
-              </div>
-
-              <div className="group">
-                <label className="block text-sm text-gray-500 mb-2 group-focus-within:text-white transition-colors">
-                  Email*
-                </label>
-                <input 
-                  type="email" 
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:outline-none focus:border-white transition-colors"
-                />
-              </div>
-
-              <div className="group">
-                <label className="block text-sm text-gray-500 mb-2 group-focus-within:text-white transition-colors">
-                  Mensaje (Cuéntanos sobre tu interés)
-                </label>
-                <textarea 
-                  rows={4}
-                  className="w-full bg-transparent border-b border-white/20 py-4 text-xl focus:outline-none focus:border-white transition-colors resize-none"
-                />
-              </div>
-
-              <button 
-                type="button"
-                className="group flex items-center gap-4 text-xl font-medium mt-8 hover:opacity-80 transition-opacity"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
               >
-                <CornerDownRight className="w-6 h-6" />
-                Enviar Mensaje
-              </button>
-            </form>
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-8">
+                  <span className="text-xl font-light">N</span>
+                </div>
+                
+                <h2 
+                  className="text-5xl md:text-7xl font-medium mb-8 uppercase" 
+                  style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+                >
+                  HABLEMOS
+                </h2>
+                
+                <p className="text-gray-400 text-lg md:text-xl font-light leading-relaxed max-w-md">
+                  Estamos listos para asesorarte en tu próxima inversión. Déjanos tus datos y un experto inmobiliario se pondrá en contacto contigo para construir tu futuro.
+                </p>
+              </motion.div>
+            </div>
+
+            <div className="hidden md:flex flex-col gap-6 mt-16">
+              <div className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors cursor-pointer group">
+                <div className="p-3 rounded-full border border-white/10 group-hover:border-white/40 transition-colors">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <span className="text-lg tracking-wide">+504 9856-2930</span>
+              </div>
+              <div className="flex items-center gap-4 text-gray-400 hover:text-white transition-colors cursor-pointer group">
+                <div className="p-3 rounded-full border border-white/10 group-hover:border-white/40 transition-colors">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <span className="text-lg tracking-wide">info@inmaer.hn</span>
+              </div>
+            </div>
           </div>
+
+          {/* Right Column - Form */}
+          <div className="md:w-1/2">
+            <motion.form
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="space-y-12"
+            >
+              <div className="space-y-8">
+                <div className="group relative">
+                  <input 
+                    type="text" 
+                    id="name" 
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent"
+                    placeholder="Nombre"
+                  />
+                  <label 
+                    htmlFor="name"
+                    className="absolute left-0 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-white peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-sm peer-not-placeholder-shown:text-white cursor-text"
+                  >
+                    Nombre
+                  </label>
+                </div>
+
+                <div className="group relative">
+                  <input 
+                    type="email" 
+                    id="email" 
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent"
+                    placeholder="Email"
+                  />
+                  <label 
+                    htmlFor="email"
+                    className="absolute left-0 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-white peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-sm peer-not-placeholder-shown:text-white cursor-text"
+                  >
+                    Email
+                  </label>
+                </div>
+
+                <div className="group relative">
+                  <textarea 
+                    id="message" 
+                    rows={4}
+                    className="w-full bg-transparent border-b border-white/20 py-4 text-lg focus:outline-none focus:border-white transition-colors peer placeholder-transparent resize-none"
+                    placeholder="Mensaje"
+                  ></textarea>
+                  <label 
+                    htmlFor="message"
+                    className="absolute left-0 top-4 text-gray-500 transition-all peer-focus:-top-6 peer-focus:text-sm peer-focus:text-white peer-not-placeholder-shown:-top-6 peer-not-placeholder-shown:text-sm peer-not-placeholder-shown:text-white cursor-text"
+                  >
+                    Mensaje (Cuéntanos sobre tu interés)
+                  </label>
+                </div>
+              </div>
+
+              <div className="flex justify-start">
+                <button 
+                  type="button"
+                  className="group flex items-center gap-4 text-xl font-light hover:text-gray-300 transition-colors"
+                >
+                  <ArrowDownLeft className="w-6 h-6 rotate-180 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  Enviar Mensaje
+                </button>
+              </div>
+
+              {/* Mobile Contact Info (Visible only on mobile) */}
+              <div className="md:hidden flex flex-col gap-6 mt-12 pt-12 border-t border-white/10">
+                <div className="flex items-center gap-4 text-gray-400">
+                  <Phone className="w-5 h-5" />
+                  <span>+504 9856-2930</span>
+                </div>
+                <div className="flex items-center gap-4 text-gray-400">
+                  <Mail className="w-5 h-5" />
+                  <span>info@inmaer.hn</span>
+                </div>
+              </div>
+
+            </motion.form>
+          </div>
+
         </div>
       </div>
     </section>
