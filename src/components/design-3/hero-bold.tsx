@@ -16,8 +16,8 @@ const HeroBold = () => {
           ref={containerRef}
           className="relative flex h-full items-center justify-start container mx-auto px-6 md:px-12"
         >
-          {/* Split Background */}
-          <div className="absolute top-0 right-0 w-full md:w-2/3 h-full bg-gray-900 z-0 overflow-hidden">
+          {/* Split Background - Right Side Image */}
+          <div className="absolute top-0 right-0 w-full md:w-[55%] h-full bg-gray-900 z-0 overflow-hidden">
              <motion.img 
               style={{ y: yParallax }}
               src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" 
@@ -28,7 +28,8 @@ const HeroBold = () => {
           </div>
 
           {/* Content - Left Aligned, Bold & Corporate */}
-          <div className="relative z-10 max-w-2xl text-white">
+          {/* Added mix-blend-difference to ensure visibility on both white and dark backgrounds */}
+          <div className="relative z-10 max-w-4xl text-white mix-blend-difference">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -40,24 +41,22 @@ const HeroBold = () => {
               </div>
               
               <h1 
-                className="text-6xl md:text-8xl font-black leading-tight mb-8"
+                className="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] mb-8 tracking-tighter"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
                 EL FUTURO <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-                  ES AHORA.
-                </span>
+                ES AHORA.
               </h1>
               
-              <p className="text-lg md:text-xl text-gray-300 font-medium leading-relaxed mb-10 max-w-lg">
+              <p className="text-lg md:text-2xl text-gray-200 font-medium leading-relaxed mb-10 max-w-xl">
                 Desarrollo inmobiliario de alto impacto en Honduras. Plazas comerciales y residenciales que redefinen el estándar de inversión.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-100 transition-colors shadow-lg shadow-white/10">
+                <button className="px-8 py-4 bg-white text-black font-bold uppercase tracking-wider hover:bg-gray-200 transition-colors">
                   Ver Proyectos
                 </button>
-                <button className="group px-8 py-4 border-2 border-white/20 text-white font-bold uppercase tracking-wider hover:bg-white/10 transition-colors flex items-center gap-3">
+                <button className="group px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors flex items-center gap-3">
                   Contáctanos
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
