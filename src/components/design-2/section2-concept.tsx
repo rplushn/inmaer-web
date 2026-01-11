@@ -14,12 +14,12 @@ interface ConceptTextProps {
 const ConceptText = ({ 
   className,
   label = "CONCEPTO",
-  title = "NO VENDEMOS LOTES. DESARROLLAMOS EL FUTURO.",
+  title = "TU PATRIMONIO EN TIERRA FIRME CON NOSOTROS",
   description = (
     <>
-      <strong>Más que metros cuadrados, construimos futuro.</strong>
+      <strong>Inversión con propósito.</strong>
       <br /><br />
-      INMAER redefine el estándar inmobiliario. Transformamos tierras en plusvalia y espacios en verdaderos ecosistemas de vida. Donde otros ven terrenos, nosotros vemos ciudades conectadas, seguras y rentables.
+      Garantizamos certeza jurídica y crecimiento exponencial en las zonas de mayor expansión: Danlí, San Lorenzo y Talanga.
     </>
   ),
   buttonText,
@@ -60,14 +60,14 @@ const ConceptText = ({
                 </h2>
               </FadeIn>
 
-              {/* Paragraph */}
-              <FadeIn delay={0.4}>
-                <p 
-                  className="text-sm sm:text-base md:text-base text-muted-foreground max-w-xl font-sans leading-relaxed text-left" 
+              {/* Paragraph - ALIGNED WITH TITLE */}
+              <FadeIn delay={0.4} className="pl-[2px]"> {/* Added tiny padding to align perfectly visually if needed */}
+                <div 
+                  className="text-sm sm:text-base md:text-base text-muted-foreground max-w-xl font-sans leading-relaxed text-left block" 
                   style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }}
                 >
                   {description}
-                </p>
+                </div>
               </FadeIn>
 
               {/* Button (if provided) */}
