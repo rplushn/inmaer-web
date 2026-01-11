@@ -22,7 +22,7 @@ const MainHero = () => {
               style={{ y: yParallax }}
               src="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2067&auto=format&fit=crop" 
               className="object-cover w-full h-[120%] opacity-20 grayscale"
-              alt="Construcción Sólida"
+              alt="Architecture"
              />
           </div>
 
@@ -47,7 +47,7 @@ const MainHero = () => {
             <div className="h-px w-24 bg-black/20 mx-auto mb-8"></div>
             
             <p className="text-lg md:text-2xl font-light tracking-widest uppercase text-gray-800">
-              CIMENTANDO TU PATRIMONIO
+              ARQUITECTURA DE INVERSIÓN
             </p>
           </motion.div>
 
