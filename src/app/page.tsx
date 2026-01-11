@@ -1,89 +1,107 @@
 import React from "react";
-import { UltraHero } from "@/components/design-2/ultra-hero";
+import { MainHero } from "@/components/design-2/main-hero";
 import { ConceptText } from "@/components/design-2/section2-concept";
-import { Section3Amenities } from "@/components/design-2/section3-amenities";
-import { Section4Projects } from "@/components/design-2/section4-projects";
-import { Section5Projects } from "@/components/design-2/section5-projects";
-import { Section5Lifestyle } from "@/components/design-2/section5-lifestyle";
-import { Section6Map } from "@/components/design-2/section6-map";
-import { Section8ContactForm } from "@/components/design-2/section8-contact-form";
 import { StorySection } from "@/components/design-2/nosotros/story-section";
-import { ContactInfoHighlight } from "@/components/design-2/contacto/contact-info-highlight";
+import { ProjectsTeaser } from "@/components/design-2/projects-teaser";
+import { Section5Projects } from "@/components/design-2/section5-projects";
 import { ValuesGrid } from "@/components/design-2/nosotros/values-grid";
+import { Section6Map } from "@/components/design-2/section6-map";
+import { ContactInfoHighlight } from "@/components/design-2/contacto/contact-info-highlight";
+import { Section8ContactForm } from "@/components/design-2/section8-contact-form";
 
 export default function HomePage() {
   return (
     <>
-      {/* 1. ULTRA HERO: Video Background & Powerful Message */}
-      <UltraHero />
+      {/* 1. HERO: Sober, Elegant, Minimalist (New Request) */}
+      <MainHero />
       
       <div className="relative z-10 bg-white" style={{ color: 'rgba(10, 10, 10, 1)' }}>
         
-        {/* 2. INTRO NARRATIVA: Essence */}
+        {/* 2. INTRO: The Manifesto */}
         <ConceptText 
-          label="NUESTRA ESENCIA"
-          title="MÁS DE UNA DÉCADA CONSTRUYENDO EL FUTURO DE HONDURAS."
+          label="MANIFIESTO"
+          title="ARQUITECTURA DE INVERSIÓN PATRIMONIAL."
           description={
             <>
-              <strong>Raíces en el Oriente.</strong>
+              <strong>Más allá del metro cuadrado.</strong>
               <br /><br />
-              INMAER no es solo una desarrolladora inmobiliaria; somos el motor de crecimiento de la zona oriental. Nacimos en Danlí con la misión de transformar la manera en que las familias hondureñas invierten en su patrimonio.
+              Creemos que la tierra no es solo un activo, es el fundamento de la libertad financiera. Diseñamos ecosistemas donde la plusvalía es una consecuencia inevitable de la ubicación estratégica y la planificación urbana consciente.
             </>
           }
           className="py-32 md:py-48"
         />
 
-        {/* 3. VIDEO LIFESTYLE: Emotional Connection */}
-        <Section3Amenities />
-
-        {/* 4. VALUE PROP: Smart Investment */}
+        {/* 3. STORY: Legacy (Why Us - Past) */}
         <StorySection 
-          label="PROPUESTA DE VALOR"
-          title="INVERSIÓN INTELIGENTE EN TIERRA FIRME"
+          label="LEGADO"
+          title="UNA DÉCADA DE CERTEZA"
           description={
             <>
-              <p>En un mercado volátil, la tierra sigue siendo el activo más seguro. Pero no cualquier tierra.</p>
-              <p>Nuestra especialidad es identificar zonas de <strong>alto potencial de apreciación</strong> antes que el mercado lo haga evidente. Al invertir con INMAER, no solo compras metros cuadrados; aseguras una posición estratégica en el desarrollo económico de Honduras.</p>
+              <p>En un mercado saturado de promesas, nosotros ofrecemos escrituras. Nacimos en la zona oriental con una premisa innegociable: la seguridad jurídica ante todo.</p>
+              <p>Cada proyecto de INMAER es un testimonio tangible de cumplimiento, desde la primera piedra hasta la entrega final de tu patrimonio.</p>
             </>
           }
-          image="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
+          image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
         />
 
-        {/* 5. DESIGN PHILOSOPHY: Conscious Urbanism */}
-        <ConceptText
-          label="DISEÑO"
-          title="UN LUGAR DONDE LA NATURALEZA Y LA OPORTUNIDAD SE UNEN."
+        {/* 4. STORY: Innovation (Why Us - Future) */}
+        <StorySection 
+          label="VISIÓN"
+          title="URBANISMO QUE RESPIRA"
           description={
             <>
-              <strong>Urbanismo Consciente.</strong>
-              <br /><br />
-              Cada proyecto es planificado respetando la topografía y el entorno natural, creando comunidades que respiran y perduran en el tiempo.
+              <p>Rompemos con la monotonía del concreto. Nuestros desarrollos integran la naturaleza como el amenity principal.</p>
+              <p>Desde Danlí hasta San Lorenzo, creamos espacios donde la vida moderna y el entorno natural coexisten en perfecto equilibrio, garantizando calidad de vida para generaciones.</p>
             </>
           }
-          className="py-32 md:py-40"
+          image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
+          reversed
         />
-        
-        {/* 6. PORTFOLIO: The Product */}
-        <Section4Projects />
 
-        {/* 7. STATS: Social Proof */}
-        <Section5Projects className="bg-white" />
+        {/* 5. BREAK: Big Numbers */}
+        <Section5Projects className="bg-[#f9f9f9]" />
 
-        {/* 8. LIFESTYLE STANDARD: Quality Assurance (Dark) */}
-        <Section5Lifestyle />
+        {/* 6. PORTFOLIO TEASER (Clean Grid) */}
+        <ProjectsTeaser />
 
-        {/* 9. VALUES: Pillars of Trust */}
+        {/* 7. PHILOSOPHY / VALUES */}
         <ValuesGrid />
 
-        {/* 10. MAP: Strategic Locations */}
+        {/* 8. INNOVATION 2026 (Call Center highlight reused cleanly) */}
+        <StorySection 
+          label="SERVICIO 2026"
+          title="ATENCIÓN SIN FRONTERAS"
+          description={
+            <>
+              <p>La distancia no es un obstáculo. Con nuestro nuevo Call Center Centralizado y Portal de Clientes, gestionas tu inversión desde cualquier parte del mundo.</p>
+              <p>Transparencia total en tus pagos, avances y consultas. Tu patrimonio, a un clic de distancia.</p>
+            </>
+          }
+          image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop"
+        />
+
+        {/* 9. DARK QUOTE SECTION */}
+        <div className="bg-black text-white py-40 md:py-56 text-center px-4">
+          <div className="container mx-auto max-w-5xl">
+             <h2 
+                className="text-4xl md:text-6xl font-thin uppercase leading-tight mb-8"
+                style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+              >
+                "Invertir en tierra es invertir en el único recurso que ya no se fabrica."
+              </h2>
+              <div className="h-px w-20 bg-white/30 mx-auto"></div>
+          </div>
+        </div>
+
+        {/* 10. MAP */}
         <Section6Map />
 
-        {/* 11. DIRECT LINE: Immediate Contact (New Requirement) */}
+        {/* 11. DIRECT LINE (As requested) */}
         <div className="border-t border-gray-100">
           <ContactInfoHighlight />
         </div>
 
-        {/* 12. CLOSING FORM: Call to Action */}
+        {/* 12. FINAL FORM */}
         <div className="bg-[#2E2E2E]">
           <Section8ContactForm />
         </div>
