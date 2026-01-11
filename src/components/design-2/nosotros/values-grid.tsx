@@ -6,18 +6,18 @@ import { HardHat, Home, FileCheck } from "lucide-react";
 const ValuesGrid = () => {
   const values = [
     {
-      title: "SEGURIDAD JURÍDICA",
-      description: "No vendemos promesas, vendemos escrituras. Todos nuestros lotes cuentan con documentación legal al día, listos para traspaso inmediato.",
+      title: "TRANSPARENCIA",
+      description: "Operamos con libros abiertos. Cada transacción, documento y proceso es claro para nuestros inversionistas y clientes desde el primer día.",
       icon: <FileCheck className="w-8 h-8 text-black" />
     },
     {
-      title: "URBANISMO REAL",
-      description: "Entregamos proyectos con servicios básicos garantizados: agua potable, energía eléctrica y calles transitables desde el primer día.",
+      title: "INNOVACIÓN",
+      description: "Rompemos los esquemas tradicionales. Integramos tecnología y diseño moderno en cada uno de nuestros desarrollos urbanísticos.",
       icon: <HardHat className="w-8 h-8 text-black" />
     },
     {
-      title: "PLUSVALÍA ASEGURADA",
-      description: "Elegimos ubicaciones estratégicas donde el valor de tu tierra crece año con año, protegiendo tu inversión de la inflación.",
+      title: "COMPROMISO",
+      description: "Nuestra palabra es garantía. Cumplimos cada plazo y promesa, asegurando que tu inversión se materialice tal como la soñaste.",
       icon: <Home className="w-8 h-8 text-black" />
     }
   ];
