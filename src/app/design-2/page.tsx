@@ -13,21 +13,27 @@ export default function DesignPage2() {
   return (
     <>
       <Hero />
-      <div className="relative z-10 bg-transparent space-y-32 md:space-y-40" style={{ color: 'rgba(10, 10, 10, 1)' }}>
-        <ConceptText />
-        <Section3Amenities />
-        <ConceptText
-          label={null}
-          title="UN LUGAR DONDE LA NATURALEZA, EL DISEÑO Y LA OPORTUNIDAD SE UNEN."
-          buttonText="NUESTRA VISIÓN +"
-        />
+      <div className="relative z-10 bg-transparent" style={{ color: 'rgba(10, 10, 10, 1)' }}>
+        <div className="space-y-32 md:space-y-40 pb-32 md:pb-40">
+          <ConceptText />
+          <Section3Amenities />
+          <ConceptText
+            label={null}
+            title="UN LUGAR DONDE LA NATURALEZA, EL DISEÑO Y LA OPORTUNIDAD SE UNEN."
+            buttonText="NUESTRA VISIÓN +"
+          />
+          
+          <Section4Projects />
+          <Section5Projects />
+          <Section5Lifestyle />
+          <Section6Map />
+        </div>
         
-        <Section4Projects />
-        <Section5Projects />
-        <Section5Lifestyle />
-        <Section6Map />
-        <Section7Projects />
-        <Section8ContactForm />
+        {/* Dark Footer Area - No gaps */}
+        <div>
+          <Section7Projects />
+          <Section8ContactForm />
+        </div>
       </div>
     </>
   );
