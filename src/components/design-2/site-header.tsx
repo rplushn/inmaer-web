@@ -20,7 +20,6 @@ export function SiteHeader() {
     setIsScrolled(!isAtTop);
     
     // Threshold to hide header: slightly larger than window height to clear hero
-    // Assuming typical hero height is window height (100vh) or slightly less
     const heroHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
 
     if (latest < heroHeight) {
@@ -56,60 +55,57 @@ export function SiteHeader() {
           >
             <div className="container mx-auto px-4">
               <div className="flex items-center justify-between">
-                {/* Left Side: Logo and Links */}
-                <div className="flex items-center gap-12">
-                   {/* Logo */}
+                {/* Left Side: Logo */}
+                <Link
+                  href="/"
+                  className={cn(
+                    "text-xl font-semibold transition-colors uppercase tracking-widest",
+                    "text-black"
+                  )}
+                >
+                  {siteConfig.name}
+                </Link>
+
+                {/* Center: Navigation Links */}
+                <nav className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+                  {/* INICIO First */}
                   <Link
                     href="/"
                     className={cn(
-                      "text-xl font-semibold transition-colors uppercase tracking-widest",
+                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
                       "text-black"
                     )}
                   >
-                    {siteConfig.name}
+                    Inicio
                   </Link>
 
-                   {/* Navigation Links - Repositioned Here */}
-                  <nav className="hidden md:flex items-center gap-8">
-                    {/* INICIO First */}
-                    <Link
-                      href="/"
+                   {/* PROYECTOS Second (with modal trigger) */}
+                  <button
+                    onClick={() => setIsProjectsModalOpen(true)}
+                    className={cn(
+                      "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600 cursor-pointer bg-transparent border-none p-0",
+                      "text-black"
+                    )}
+                  >
+                    Proyectos
+                  </button>
+                  
+                  {/* Other Links (Nosotros, Contacto) */}
+                  {siteConfig.navLinks
+                    .filter(l => l.label !== "Proyectos" && l.label !== "Inicio") 
+                    .map((link) => (
+                     <Link
+                      key={link.href}
+                      href={link.href}
                       className={cn(
                         "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
                         "text-black"
                       )}
                     >
-                      Inicio
+                      {link.label}
                     </Link>
-
-                     {/* PROYECTOS Second (with modal trigger) */}
-                    <button
-                      onClick={() => setIsProjectsModalOpen(true)}
-                      className={cn(
-                        "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600 cursor-pointer bg-transparent border-none p-0",
-                        "text-black"
-                      )}
-                    >
-                      Proyectos
-                    </button>
-                    
-                    {/* Other Links (Nosotros, Contacto) */}
-                    {siteConfig.navLinks
-                      .filter(l => l.label !== "Proyectos" && l.label !== "Inicio") // Filter out if they exist in config to avoid dupes
-                      .map((link) => (
-                       <Link
-                        key={link.href}
-                        href={link.href}
-                        className={cn(
-                          "text-[13px] font-medium uppercase tracking-[2px] transition-colors hover:text-gray-600",
-                          "text-black"
-                        )}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
+                  ))}
+                </nav>
 
                 {/* Right Side: CTA Button */}
                 <Link
