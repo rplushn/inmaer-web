@@ -10,7 +10,7 @@ interface Section8ContactFormProps {
 const Section8ContactForm = ({ className }: Section8ContactFormProps) => {
   return (
     <section
-      className={cn("bg-black text-white py-24 md:py-32", className)}
+      className={cn("bg-[#2E2E2E] text-white py-24 md:py-32", className)}
       style={{
         fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
       }}
