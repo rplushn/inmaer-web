@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowDownLeft, Mail, Phone } from "lucide-react";
-import React from "react";
+import React, { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 interface Section8ContactFormProps {
@@ -24,12 +24,10 @@ const Section8ContactForm = ({ className }: Section8ContactFormProps) => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-8">
-                  <span className="text-xl font-light">N</span>
-                </div>
+                {/* Icon removed to lift the title up */}
                 
                 <h2 
-                  className="text-5xl md:text-7xl font-medium mb-8 uppercase" 
+                  className="text-6xl md:text-8xl font-normal mb-8 uppercase" 
                   style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                 >
                   HABLEMOS
