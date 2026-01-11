@@ -1,90 +1,80 @@
 import React from "react";
-import { HeroBold } from "@/components/design-3/hero-bold";
-import { FeaturesBold } from "@/components/design-3/features-bold";
-import { ProjectsGridBold } from "@/components/design-3/projects-grid-bold";
-import { Section3Amenities } from "@/components/design-2/section3-amenities";
-import { Section5Projects } from "@/components/design-2/section5-projects";
-import { Section6Map } from "@/components/design-2/section6-map";
-import { Section8ContactForm } from "@/components/design-2/section8-contact-form";
-import { ConceptText } from "@/components/design-2/section2-concept";
-import { ContactInfoHighlight } from "@/components/design-2/contacto/contact-info-highlight";
+import { HeroModern, StatsBar } from "@/components/design-3/hero-modern";
+import { InvestmentFocus } from "@/components/design-3/investment-focus";
+import { ProjectSpotlight } from "@/components/design-3/project-spotlight";
+import { TechInnovation } from "@/components/design-3/tech-innovation";
+import { StepsGuide } from "@/components/design-3/steps-guide";
+import { TestimonialsSection } from "@/components/design-3/testimonials-section";
+import { FaqSection } from "@/components/design-3/faq-section";
+import { CorporateContact } from "@/components/design-3/corporate-contact";
+import { CtaFooter } from "@/components/design-3/cta-footer";
+import { Section6Map } from "@/components/design-2/section6-map"; // Reusing Map as requested ("puedes reutilizar el mapa")
 
 export default function Design3Page() {
   return (
     <>
-      {/* 1. HERO: Bold Corporate Style */}
-      <HeroBold />
+      {/* 1. HERO: Video Background & Corporate Message */}
+      <HeroModern />
       
-      <div className="relative z-10 bg-white" style={{ color: 'rgba(10, 10, 10, 1)' }}>
+      {/* 2. STATS: Trust Markers */}
+      <StatsBar />
+
+      <div className="relative z-10 bg-white text-gray-900">
         
-        {/* 2. INTRO: Clean & Direct */}
-        <div className="container mx-auto px-6 md:px-12 py-32 md:py-48">
-          <h2 className="text-3xl md:text-5xl font-bold leading-tight max-w-4xl">
-            "No vendemos ilusiones. Vendemos <span className="text-blue-600">tierra firme</span>, documentos en regla y un futuro financiero sólido."
-          </h2>
-        </div>
+        {/* 3. ABOUT / MISSION (Inline simple component for variety) */}
+        <section className="py-24 px-6 container mx-auto text-center max-w-4xl">
+           <h2 className="text-sm font-bold tracking-[0.3em] text-blue-600 mb-6 uppercase">Nuestra Filosofía</h2>
+           <p className="text-3xl md:text-5xl font-bold leading-tight mb-8">
+             No solo vendemos metros cuadrados, creamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">ecosistemas de valor</span>.
+           </p>
+           <p className="text-xl text-gray-500 font-light leading-relaxed">
+             Cada proyecto de INMAER nace de un análisis urbano profundo. Buscamos las zonas de mayor expansión demográfica y comercial para garantizar que tu inversión crezca más rápido que la inflación.
+           </p>
+        </section>
 
-        {/* 3. FEATURES: Cards with Icons (Modern) */}
-        <FeaturesBold />
+        {/* 4. INVESTMENT FOCUS (Services) */}
+        <InvestmentFocus />
 
-        {/* 4. VIDEO: Lifestyle (Reused but effective) */}
-        <div className="py-20 bg-black">
-             <Section3Amenities />
-        </div>
-
-        {/* 5. PROJECTS GRID: Visual Heavy */}
-        <ProjectsGridBold />
-
-        {/* 6. STATS: Big Numbers */}
-        <Section5Projects className="bg-blue-900 text-white" />
-
-        {/* 7. PHILOSOPHY: Corporate */}
-        <ConceptText 
-          label="NUESTRA MISIÓN"
-          title="TRANSFORMAR EL ORIENTE DE HONDURAS."
-          description="Desde 2015, hemos liderado el desarrollo urbano en Danlí y sus alrededores. Nuestra visión es clara: crear espacios donde el comercio y la familia prosperen juntos."
-          className="bg-gray-100 py-32"
+        {/* 5. SPOTLIGHT 1: Ciudad Dorada */}
+        <ProjectSpotlight 
+           category="Residencial Premium"
+           title="CIUDAD DORADA"
+           description="El desarrollo más exclusivo de Danlí. Un oasis de seguridad y diseño con acceso controlado, áreas verdes y la plusvalía más alta de la región."
+           image="https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2071&auto=format&fit=crop"
         />
 
-        {/* 8. INNOVATION 2026 */}
-        <div className="container mx-auto px-6 md:px-12 py-32 flex flex-col md:flex-row items-center gap-16">
-          <div className="w-full md:w-1/2">
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop" alt="Call Center" className="rounded-2xl shadow-2xl" />
-          </div>
-          <div className="w-full md:w-1/2">
-            <span className="text-blue-600 font-bold tracking-widest uppercase mb-4 block">Nuevo en 2026</span>
-            <h2 className="text-4xl font-bold mb-6">Atención Centralizada</h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Lanzamos nuestro Call Center y Portal de Clientes para que tengas control total de tu inversión desde tu celular.
-            </p>
-            <button className="px-6 py-3 bg-black text-white font-bold rounded-lg hover:bg-gray-800 transition-colors">
-              Conocer Más
-            </button>
-          </div>
+        {/* 6. TECH INNOVATION (App/Portal) */}
+        <TechInnovation />
+
+        {/* 7. SPOTLIGHT 2: Brisas del Sur */}
+        <ProjectSpotlight 
+           category="Expansión Comercial"
+           title="BRISAS DEL SUR"
+           description="Ubicado estratégicamente en el corredor logístico de San Lorenzo. Lotes comerciales listos para negocios que buscan capturar el tráfico del sur."
+           image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+           reversed
+        />
+
+        {/* 8. STEPS TO INVEST */}
+        <div className="bg-gray-50">
+           <div className="container mx-auto px-6 pt-24 text-center">
+              <h2 className="text-4xl font-bold">TU CAMINO A LA INVERSIÓN</h2>
+           </div>
+           <StepsGuide />
         </div>
 
-        {/* 9. MAP */}
+        {/* 9. TESTIMONIALS */}
+        <TestimonialsSection />
+
+        {/* 10. MAP (Reused) */}
         <Section6Map />
 
-        {/* 10. DIRECT CONTACT */}
-        <div className="bg-gray-50 border-t border-gray-200">
-             <ContactInfoHighlight />
-        </div>
+        {/* 11. FAQ */}
+        <FaqSection />
 
-        {/* 11. FINAL CTA */}
-        <div className="bg-[#1a1a1a]">
-            <div className="container mx-auto px-6 py-24 text-center text-white">
-                <h2 className="text-4xl md:text-6xl font-black mb-8">¿LISTO PARA INVERTIR?</h2>
-                <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                    Agenda una visita hoy mismo y conoce por qué somos la desarrolladora número uno del oriente.
-                </p>
-            </div>
-        </div>
-
-        {/* 12. FORM */}
-        <div className="bg-black">
-             <Section8ContactForm />
-        </div>
+        {/* 12. FINAL CTA & CONTACT */}
+        <CtaFooter />
+        <CorporateContact />
 
       </div>
     </>
