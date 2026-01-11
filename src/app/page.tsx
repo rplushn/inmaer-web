@@ -12,46 +12,46 @@ import { Section8ContactForm } from "@/components/design-2/section8-contact-form
 export default function HomePage() {
   return (
     <>
-      {/* 1. HERO: Cimentando Tu Patrimonio */}
+      {/* 1. HERO: Sober, Elegant, Minimalist (New Request) */}
       <MainHero />
       
       <div className="relative z-10 bg-white" style={{ color: 'rgba(10, 10, 10, 1)' }}>
         
-        {/* 2. INTRO: El Manifiesto Nuevo - Enfocado en Propiedad y Valor */}
+        {/* 2. INTRO: The Manifesto */}
         <ConceptText 
           label="MANIFIESTO"
-          title="TU TIERRA, TU LEGADO."
+          title="ARQUITECTURA DE INVERSIÓN PATRIMONIAL."
           description={
             <>
-              <strong>La libertad comienza con un terreno propio.</strong>
+              <strong>Más allá del metro cuadrado.</strong>
               <br /><br />
-              Desarrollamos proyectos urbanizados, con servicios reales y escrituras en mano. Creamos espacios donde tu inversión está segura y crece día a día, garantizando el futuro de tu familia.
+              Creemos que la tierra no es solo un activo, es el fundamento de la libertad financiera. Diseñamos ecosistemas donde la plusvalía es una consecuencia inevitable de la ubicación estratégica y la planificación urbana consciente.
             </>
           }
           className="py-32 md:py-48"
         />
 
-        {/* 3. STORY: Legado Sólido */}
+        {/* 3. STORY: Legacy (Why Us - Past) */}
         <StorySection 
           label="LEGADO"
-          title="UNA DÉCADA CUMPLIENDO"
+          title="UNA DÉCADA DE CERTEZA"
           description={
             <>
-              <p>En INMAER no vendemos promesas, entregamos realidades. Nacimos en la zona oriental con una misión clara: facilitar el acceso a una vivienda digna y segura.</p>
-              <p>Cada proyecto es un testimonio de cumplimiento. Desde calles bien trazadas hasta sistemas de agua potable eficientes, nuestra obra gris es la garantía de tu bienestar.</p>
+              <p>En un mercado saturado de promesas, nosotros ofrecemos escrituras. Nacimos en la zona oriental con una premisa innegociable: la seguridad jurídica ante todo.</p>
+              <p>Cada proyecto de INMAER es un testimonio tangible de cumplimiento, desde la primera piedra hasta la entrega final de tu patrimonio.</p>
             </>
           }
           image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
         />
 
-        {/* 4. STORY: Visión Constructiva */}
+        {/* 4. STORY: Innovation (Why Us - Future) */}
         <StorySection 
           label="VISIÓN"
-          title="CONSTRUCCIÓN QUE PERDURA"
+          title="URBANISMO QUE RESPIRA"
           description={
             <>
-              <p>Llevamos el desarrollo urbano a donde más se necesita. Transformamos lotes baldíos en comunidades vibrantes con alta plusvalía.</p>
-              <p>Desde Danlí hasta San Lorenzo, nuestros desarrollos son sinónimo de solidez y crecimiento económico para la región.</p>
+              <p>Rompemos con la monotonía del concreto. Nuestros desarrollos integran la naturaleza como el amenity principal.</p>
+              <p>Desde Danlí hasta San Lorenzo, creamos espacios donde la vida moderna y el entorno natural coexisten en perfecto equilibrio, garantizando calidad de vida para generaciones.</p>
             </>
           }
           image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
@@ -80,14 +80,14 @@ export default function HomePage() {
           image="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop"
         />
 
-        {/* 9. DARK QUOTE SECTION - Updated */}
+        {/* 9. DARK QUOTE SECTION */}
         <div className="bg-black text-white py-40 md:py-56 text-center px-4">
           <div className="container mx-auto max-w-5xl">
              <h2 
                 className="text-4xl md:text-6xl font-thin uppercase leading-tight mb-8"
                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
               >
-                "Invertir en tierra es la forma más segura de construir libertad."
+                "Invertir en tierra es invertir en el único recurso que ya no se fabrica."
               </h2>
               <div className="h-px w-20 bg-white/30 mx-auto"></div>
           </div>
