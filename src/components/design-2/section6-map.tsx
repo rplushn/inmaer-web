@@ -17,25 +17,25 @@ interface Location {
 const locations: Location[] = [
   {
     id: "tegucigalpa",
-    name: "Francisco Morazán (Tegucigalpa)",
+    name: "Tegucigalpa (Francisco Morazán)",
     top: "60%",
     left: "32%",
   },
   {
     id: "danli",
-    name: "El Paraíso (Danlí)",
+    name: "Danlí (El Paraíso)",
     top: "62%",
     left: "42%",
   },
   {
-    id: "olancho",
-    name: "Olancho (Juticalpa)",
-    top: "50%",
-    left: "48%",
+    id: "talanga",
+    name: "Talanga (Francisco Morazán)",
+    top: "55%",
+    left: "34%",
   },
   {
-    id: "choluteca",
-    name: "Choluteca",
+    id: "sanlorenzo",
+    name: "San Lorenzo (Valle)",
     top: "78%",
     left: "28%",
   },
@@ -72,16 +72,15 @@ const Section6Map = ({ className }: Section6MapProps) => {
         <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-14">
           {/* Columna Izquierda - Título */}
           <div className="flex flex-col">
-            <h2 className="mb-7 text-[77px] font-normal uppercase leading-[70px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
-              PRESENCIA NACIONAL
+            <h2 className="mb-7 text-[48px] md:text-[77px] font-normal uppercase leading-tight md:leading-[70px] tracking-[1px] font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',Helvetica,Arial,sans-serif]">
+              PRESENCIA ESTRATÉGICA
             </h2>
             <p 
               className="text-base leading-relaxed text-gray-700 max-w-md"
               style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, sans-serif" }}
             >
-              Con proyectos en múltiples departamentos de Honduras, expandimos
-              nuestra presencia para llevar desarrollo y oportunidades a más
-              comunidades.
+              Ubicaciones seleccionadas por su potencial de plusvalía y crecimiento. 
+              Desarrollamos en los puntos clave de la Zona Oriental, Sur y Centro de Honduras.
             </p>
           </div>
 
@@ -95,7 +94,7 @@ const Section6Map = ({ className }: Section6MapProps) => {
               {/* Imagen de fondo */}
               <img
                 src="/images/design-2/mapa-honduras.svg"
-                alt="Mapa de Honduras"
+                alt="Mapa de Honduras con Proyectos INMAER"
                 className="w-full h-auto object-contain opacity-80 max-h-[750px] scale-125 origin-center"
               />
 
