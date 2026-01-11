@@ -29,9 +29,24 @@ export default function DesignPage2() {
           <Section6Map />
         </div>
         
-        {/* Dark Footer Area - No gaps */}
+        {/* Dark Footer Area */}
         <div>
           <Section7Projects />
+          
+          {/* Light Break Section */}
+          <ConceptText 
+            label={null}
+            title="INNOVACIÓN QUE PERDURA."
+            description={
+              <>
+                <strong>Tu inversión merece lo extraordinario.</strong>
+                <br /><br />
+                Cada proyecto de INMAER es un testimonio de nuestra dedicación a la excelencia, el diseño sostenible y el valor a largo plazo. No solo construimos espacios, elevamos estándares.
+              </>
+            }
+            className="bg-white text-black py-32 md:py-40"
+          />
+
           <Section8ContactForm />
         </div>
       </div>
