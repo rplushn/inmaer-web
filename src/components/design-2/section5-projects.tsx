@@ -1,17 +1,59 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface Section5ProjectsProps {
   className?: string;
-  sectionLabel?: string;
-  heading?: string;
-  subheading?: string;
-  descriptionHeading?: string;
-  description?: string;
-  image?: string;
-  stats?: any[];
 }
+
+const Counter = ({ value, label }: { value: string; label: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  
+  // Extraer la parte numérica y el prefijo/sufijo (ej: "+500" -> prefix="+", number=500)
+  const numericValue = parseInt(value.replace(/\D/g, ""));
+  const prefix = value.match(/^[^\d]*/)?.[0] || "";
+  const suffix = value.match(/[^\d]*$/)?.[0] || "";
+
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 30,
+    stiffness: 100,
+    duration: 2 // Duración de 2 segundos para suavidad
+  });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(numericValue);
+    }
+  }, [isInView, motionValue, numericValue]);
+
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current) {
+        // Formatear con separadores de miles si es necesario, y volver a unir
+        ref.current.textContent = `${prefix}${Math.round(latest).toLocaleString()}${suffix}`;
+      }
+    });
+  }, [springValue, prefix, suffix]);
+
+  return (
+    <div className="flex flex-col items-center text-center group">
+      <span 
+        ref={ref}
+        className="text-[50px] md:text-[70px] font-bold text-black mb-2 transition-transform duration-300 group-hover:-translate-y-2 tabular-nums"
+        style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
+      >
+        0
+      </span>
+      <span className="text-sm md:text-base font-medium tracking-widest text-gray-500 uppercase">
+        {label}
+      </span>
+    </div>
+  );
+};
 
 const Section5Projects = ({ className }: Section5ProjectsProps) => {
   const statsData = [
@@ -39,14 +81,7 @@ const Section5Projects = ({ className }: Section5ProjectsProps) => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {statsData.map((stat, index) => (
-            <div key={index} className="flex flex-col items-center text-center group">
-              <span className="text-[50px] md:text-[70px] font-bold text-black mb-2 transition-transform duration-300 group-hover:-translate-y-2">
-                {stat.value}
-              </span>
-              <span className="text-sm md:text-base font-medium tracking-widest text-gray-500 uppercase">
-                {stat.label}
-              </span>
-            </div>
+            <Counter key={index} value={stat.value} label={stat.label} />
           ))}
         </div>
       </div>
