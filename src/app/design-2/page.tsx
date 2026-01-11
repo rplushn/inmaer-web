@@ -33,9 +33,9 @@ export default function DesignPage2() {
         <div>
           <Section7Projects />
           
-          {/* Light Break Section */}
+          {/* Light Break Section - Elegant Layout */}
           <ConceptText 
-            label={null}
+            label="FILOSOFÍA"
             title="INNOVACIÓN QUE PERDURA."
             description={
               <>
@@ -44,7 +44,7 @@ export default function DesignPage2() {
                 Cada proyecto de INMAER es un testimonio de nuestra dedicación a la excelencia, el diseño sostenible y el valor a largo plazo. No solo construimos espacios, elevamos estándares.
               </>
             }
-            className="bg-white text-black py-32 md:py-40"
+            className="bg-white text-black py-48 md:py-64"
           />
 
           <Section8ContactForm />
